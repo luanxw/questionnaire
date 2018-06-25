@@ -37,17 +37,16 @@
 	<!-- 映射配置 -->
 	 
 	<table tableName="poll_survy" domainObjectName="Survy" ></table>
-	<!--
     <table tableName="poll_school" domainObjectName="School" ></table>
     <table tableName="poll_grade" domainObjectName="Grade" ></table>
     <table tableName="poll_clazz" domainObjectName="Clazz" ></table>
     <table tableName="poll_course" domainObjectName="Course" ></table>
-    <table tableName="poll_grade_course" domainObjectName="GradeCourse" ></table>
+    <table tableName="poll_answers" domainObjectName="GradeCourse" ></table>
     <table tableName="poll_user" domainObjectName="User" ></table>
 	<table tableName="poll_option" domainObjectName="Option" ></table>
     <table tableName="poll_question" domainObjectName="Question" ></table>
     <table tableName="poll_questionnaire" domainObjectName="Questionnaire" ></table>
-    <table tableName="poll_questionnaire_question" domainObjectName="QuestionnaireQuestion" ></table>
-    -->
+    <table tableName="poll_qq" domainObjectName="QuestionnaireQuestion" ></table>
+
   </context>
 </generatorConfiguration>
