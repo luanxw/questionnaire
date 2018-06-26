@@ -21,7 +21,7 @@ public class CourseServiceImpl implements ICourseService {
 		// TODO Auto-generated method stub
 		CourseExample example = new CourseExample();
 		
-		return courseMapper.selectByExample(example);
+		return courseMapper.selectByExampleWithBLOBs(example);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class CourseServiceImpl implements ICourseService {
 		// TODO Auto-generated method stub
 		CourseExample example = new CourseExample();
 		//添加了
-		example.createCriteria().andNameLike(keywords);
+		example.createCriteria().andNameLike("%"+keywords+"%");
 		return courseMapper.selectByExampleWithBLOBs(example);
 	}
 
