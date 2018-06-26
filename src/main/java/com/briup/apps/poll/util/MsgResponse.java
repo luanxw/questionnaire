@@ -21,6 +21,14 @@ public class MsgResponse {
 		return response;
 	}
 	
+	public static MsgResponse justSuccess(String message){
+		MsgResponse response=new MsgResponse();
+		response.setStauts(200);
+		response.setMessage(message);
+		response.setData(null);
+		return response;
+	}
+	
 	
 	public Integer getStauts() {
 		return stauts;
