@@ -1,4 +1,4 @@
-package com.briup.apps.poll.extend;
+package com.briup.apps.poll.bean.extend;
 
 public class CourseVM {
 

@@ -1,4 +1,4 @@
-package com.briup.apps.poll.extend;
+package com.briup.apps.poll.bean.extend;
 
 import com.briup.apps.poll.bean.Question;
 import com.briup.apps.poll.bean.Questionnaire;

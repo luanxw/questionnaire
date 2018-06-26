@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.briup.apps.poll.bean.Qq;
 import com.briup.apps.poll.bean.QqExample;
+import com.briup.apps.poll.bean.extend.QqVM;
 import com.briup.apps.poll.dao.QqMapper;
-import com.briup.apps.poll.extend.QqVM;
 import com.briup.apps.poll.service.IQqService;
 
 import io.swagger.annotations.ApiOperation;
