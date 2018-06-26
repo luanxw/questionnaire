@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.briup.apps.poll.bean.School;
 import com.briup.apps.poll.bean.SchoolExample;
-import com.briup.apps.poll.dao.CourseMapper;
 import com.briup.apps.poll.dao.SchoolMapper;
 import com.briup.apps.poll.service.ISchoolService;
 
