@@ -10,57 +10,50 @@ select * from poll_question
 <!-- 定义结果集 -->
 <resultMap type="com.briup.apps.poll.bean.Options"
            id="OptionsResultMap">
-  <result column="question_id" property="questionId"/>
+    <result column="question_id" property="questionId"/>
 </resultMap>
 
-<resultMap type="com.briup.apps.poll.bean.Qq"
+<!-- <resultMap type="com.briup.apps.poll.bean.Qq"
            id="QqResultMap">
  <result column="question_id" property="questionId"/>
  <result column="questionnaire_id" property="questionnaireId"/>
- </resultMap>
- 
- 
- 
-<resultMap type="com.briup.apps.poll.bean.extend.QuestionVM"
-           id="QuestionVMResultMap">
-<id column="id" property="id"/>
-<result column="name" property="name"/>
-<result column="questionType" property="questionType"/>
+ </resultMap> -->
 
- <collection column="id" property="options" javaType="ArrayList"
+ 
+ 
+ 
+<resultMap type="com.briup.apps.poll.bean.extend.QuestionVM" 
+           id="QuestionVMResultMap">
+     <id column="id" property="id"/>
+     <result column="name" property="name"/>
+     <result column="questionType" property="questionType"/>
+
+     <collection column="id" 
+                 property="options" 
+                 javaType="ArrayList"
              ofType="com.briup.apps.poll.bean.Options" 
              select="selectOptionsByQuestionId">
- </collection>
- <collection column="id" property="qq" javaType="ArrayList"
+     </collection>
+  <!-- <collection column="id" property="qq" javaType="ArrayList"
              ofType="com.briup.apps.poll.bean.Qq" 
              select="selectQqByQqId">
- </collection>
+    </collection> -->   
+    
 </resultMap>
 
 <!-- 通过题目id查询属于该题目的选项信息 -->
+
+
+
 <select id="selectOptionsByQuestionId" 
         parameterType="long" 
         resultMap="OptionsResultMap">
 select * from poll_options where question_id=#{id}
 </select>
-<select id="selectQqByQqId" 
+ <!-- <select id="selectQqByQqId" 
         parameterType="long" 
         resultMap="QqResultMap">
 select *from poll_qq where question_id=#{id}
-</select>
-<!--  
-<select id="deleteByPrimaryKey" parameterType="long">
-select * from poll_question where question_id=#{id}
-</select>
+</select> -->
 
-<update id="updataByPrimaryKey" 
-parameterType="com.briup.apps.poll.bean.extend.QuestionVM">
-  update poll_question  set name=#{name},questionType=#{questionType}
-  where id=#{id} </update>
-  
-<insert id="save" 
-parameterType="com.briup.apps.poll.bean.extend.QuestionVM">
-  insert into poll_question  values(null,#{name},#{questionType})
-  </insert>
-  -->
 </mapper>
