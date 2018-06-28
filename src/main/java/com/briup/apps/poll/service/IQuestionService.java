@@ -3,6 +3,7 @@ package com.briup.apps.poll.service;
 import java.util.List;
 
 import com.briup.apps.poll.bean.Question;
+//import com.briup.apps.poll.bean.extend.QuestionVM;
 
 public interface IQuestionService {
 
@@ -18,6 +19,8 @@ public interface IQuestionService {
 
 	void batchDelete(Long[] ids) throws Exception;
 
-	//List<Question> findById();
+	//List<QuestionVM> selectAll()throws Exception;
+	//List<QuestionVM> findAllQuestionVM()throws Exception;
+
 
 }
