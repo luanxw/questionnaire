@@ -79,13 +79,15 @@ public class Qqcontroller {
 		try {
 			qqService.saveOrUpdate(qq);
 			// 返回成功信息
-			return MsgResponse.success("success", null);
+			return MsgResponse.success(""
+					+ ""
+					+ "ccess", null);
 		} catch (Exception e) {
-			// 返回错误信息
 			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
 		}
 	}
+
 
 	// 扩展方法
 	@ApiOperation(value = "查询连接表信息", notes = "班级信息携带年级信息以及班主任信息")
@@ -101,4 +103,5 @@ public class Qqcontroller {
 			return MsgResponse.error(e.getMessage());
 		}
 	}
+
 }

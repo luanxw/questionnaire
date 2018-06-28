@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.apps.poll.dao.extend.CourseVMMapper">
+   <select id="selectAll" resultMap="CourseVMResultMap">
+      select * from poll_course
+         <!-- id name description period -->
+   </select>
+
+   <!-- 定义结果集 -->
+   <resultMap type="com.briup.apps.poll.bean.extend.CourseVM" id="CourseVMResultMap">
+    <id column="id" property="id"/>
+    <result column="name" property="name" />
+     <result column="description" property="description" />
+     <result column="period" property="period" />
+     <collection  column="id" property="survey" select="selectSurveyByCourseId" javaType="ArrayList" ofType="com.briup.apps.poll.bean.Survey"></collection>
+   </resultMap>
+   <!-- 通过id查找相关信息 -->
+   <select id="selectSurveyByCourseId" resultType="com.briup.apps.poll.bean.Survey" parameterType="Long">
+      select * from poll_survey where course_id = #{id}
+   </select>
+</mapper>

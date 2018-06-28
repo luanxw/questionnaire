@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.briup.apps.poll.bean.Question;
+
+//import com.briup.apps.poll.bean.extend.QuestionVM;
 import com.briup.apps.poll.service.IQuestionService;
+//import com.briup.apps.poll.service.extend.IQuestionVMService;
 import com.briup.apps.poll.util.MsgResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,12 +19,34 @@ import io.swagger.annotations.ApiOperation;
 	@RestController
 	@RequestMapping("/question")
 	public class QuestionContorller {
-
 		@Autowired
 		private IQuestionService questionService;
-		@ApiOperation(value="查询信息")
+
+		/*@Autowired
+		private IQuestionVMService questionVMService;
+		
+		@ApiOperation(value="查询所有信息",notes="单表")
+		@GetMapping("findAllQuestionVM")
+		public MsgResponse findAllQuestionVM1(){
+
+			try {
+				List<QuestionVM> list = questionVMService.findAllQuestionVM();
+				//返回成功信息
+				return MsgResponse.success("success", list);
+			} catch (Exception e) {
+				//返回错误信息
+				e.printStackTrace();
+				return MsgResponse.error(e.getMessage());
+			}
+		}
+	*/
+		
+ 
+		
+		
+		@ApiOperation(value="查询所有信息",notes="单表")
 		@GetMapping("findAllQuestion")
-		public MsgResponse findAllCourse(){
+		public MsgResponse findAllQuestion(){
 			try {
 				List<Question> list = questionService.findAll();
 				//返回成功信息
