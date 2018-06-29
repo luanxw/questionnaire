@@ -11,6 +11,7 @@ import com.briup.apps.poll.dao.QqMapper;
 import com.briup.apps.poll.dao.extend.QqVMMapper;
 import com.briup.apps.poll.service.IQqService;
 
+import io.swagger.annotations.ApiOperation;
 
 
 @Service
@@ -59,11 +60,10 @@ public class QqServiceImpl implements IQqService{
 		}
 	}
 
-//扩展方法
+@ApiOperation(value="查询班级信息", notes="班级信息携带年级信息以及班主任信息")
 	@Override
 	public List<QqVM> selectAllQqVM() throws Exception {
 	    return qqVMMapper.selectAll();
-	}
-
+	    }
 
 }

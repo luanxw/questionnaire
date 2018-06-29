@@ -6,6 +6,7 @@ import com.briup.apps.poll.bean.extend.QqVM;
 
 
 
+
 public interface IQqService {
 
 	List<Qq> findAll() throws Exception;	
@@ -15,11 +16,8 @@ public interface IQqService {
 	void batchDelete(Long[] ids)throws Exception;
 	
 	//扩展方法
-	// List<QqVM> selectAll() throws Exception;
-	 //List<QqVM> selectById(Long id) throws Exception;
-	// void deleteById(Long id) throws Exception;
-	// void saveOrUpdate(QqVM qqvm) throws Exception;
-	 //void batchdelete(Long[] id) throws Exception;
+
 	List<QqVM> selectAllQqVM() throws Exception;
+
 
 }
