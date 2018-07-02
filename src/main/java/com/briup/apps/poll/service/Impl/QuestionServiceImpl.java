@@ -5,27 +5,24 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.briup.apps.poll.bean.Options;
-import com.briup.apps.poll.bean.OptionsExample;
 import com.briup.apps.poll.bean.Question;
 import com.briup.apps.poll.bean.QuestionExample;
-import com.briup.apps.poll.bean.extend.QuestionVM;
-import com.briup.apps.poll.dao.OptionsMapper;
+//import com.briup.apps.poll.bean.extend.QuestionVM;
 import com.briup.apps.poll.dao.QuestionMapper;
+//import com.briup.apps.poll.dao.extend.QuestionVMMapper;
 import com.briup.apps.poll.service.IQuestionService;
 
 @Service
-public class QuestionServiceImpl implements IQuestionService {
+public class QuestionServiceImpl implements IQuestionService{
 	@Autowired
 	private QuestionMapper questionMapper;
-	@Autowired
-	private OptionsMapper optionsMapper;
-
+//	@Autowired
+//	private QuestionVMMapper questionVMMapper;
 	@Override
 	public List<Question> findAll() throws Exception {
 		// TODO Auto-generated method stub
 		QuestionExample example = new QuestionExample();
-
+		
 		return questionMapper.selectByExample(example);
 	}
 
@@ -39,7 +36,7 @@ public class QuestionServiceImpl implements IQuestionService {
 	public List<Question> query(String keywords) throws Exception {
 		// TODO Auto-generated method stub
 		QuestionExample example = new QuestionExample();
-		// 添加了
+		//添加了
 		example.createCriteria().andNameLike(keywords);
 		return questionMapper.selectByExample(example);
 	}
@@ -47,11 +44,11 @@ public class QuestionServiceImpl implements IQuestionService {
 	@Override
 	public void saveOrUpdate(Question question) throws Exception {
 		// TODO Auto-generated method stub
-		if (question.getId() != null) {
-			// 更新
+		if(question.getId()!=null){
+			//更新
 			questionMapper.updateByPrimaryKey(question);
-		} else {
-			// 插入
+		}else{
+			//插入
 			questionMapper.insert(question);
 		}
 	}
@@ -62,53 +59,26 @@ public class QuestionServiceImpl implements IQuestionService {
 		questionMapper.deleteByPrimaryKey(id);
 	}
 
+
 	@Override
 	public void batchDelete(Long[] ids) throws Exception {
 		// TODO Auto-generated method stub
-
+		
 	}
-
+/*
 	@Override
-	public void saveOrUpdateQuestion(QuestionVM questionVM) throws Exception {
+	public List<QuestionVM> findAllQuestionVM() throws Exception {
 		// TODO Auto-generated method stub
-		List<Options> options = questionVM.getOptions();
-		Question question = new Question();
-		question.setId(questionVM.getId());
-		question.setName(questionVM.getName());
-		question.setQuestiontype(questionVM.getQuestionType());
-
-		if (question.getId() == null) {
-			if (question.getQuestiontype().equals("简答题")) {
-				questionMapper.insert(question);
-			} else {
-				// 2.1.2 保存单选和多选题的时候需要先保存题目信息，再保存选项信息
-				questionMapper.insert(question);
-				// 如何获取刚刚插入到问题的ID
-				long questionId = question.getId();
-				for (Options option : options) {
-					// 为每个option设置question_id
-					option.setQuestionId(questionId);
-					// 保存选项
-					optionsMapper.insert(option);
-				}
-			}
-
-		} else {
-			//2.2修改
-			//2.2.1修改题目信息
-			questionMapper.updateByPrimaryKey(question);
-			//2.2.2修改选项信息（添加新选项，删除旧选项，对原来选项修改）
-			//1. 删除该题目原有的选项
-			OptionsExample example=new OptionsExample();
-			example.createCriteria().andQuestionIdEqualTo(question.getId());
-			optionsMapper.deleteByExample(example);
-			//2.重新添加选项
-			long questionId=question.getId();
-			for(Options option:options){
-				option.setQuestionId(questionId);
-				optionsMapper.insert(option);
-			}
-		}
+		return questionVMMapper.selectAll();
 	}
+/*
+ * 
+	@Override
+	public List<QuestionVM> selectAll() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+ */
 
+	
 }
