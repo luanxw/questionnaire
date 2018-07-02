@@ -7,8 +7,17 @@ public class Survey {
      * This field corresponds to the database column poll_survey.id
      *
      * @mbg.generated Mon Jun 25 18:38:57 CST 2018
+     * 
      */
-    private Long id;
+	public static final String STATUS_INIT = "未开启";	
+	//点击开启按钮，意味着当前可以执行课调 code
+	public static final String STATUS_BEGIN = "开启";	
+	//点击关闭按钮，意味着课调的关闭
+	public static final String STATUS_CHECK_UN = "未审核";
+	public static final String STATUS_CHECK_PASS = "审核通过";
+	public static final String STATUS_CHECK_NOPASS = "审核不通过";
+   
+	private Long id;
 
     /**
      *

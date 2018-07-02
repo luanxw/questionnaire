@@ -5,8 +5,10 @@ import com.briup.apps.poll.bean.Questionnaire;
 
 public class QqVM {
 	private Long id;
+
 	private Questionnaire questionnaire;
 	private Question question;
+
 	public Long getId() {
 		return id;
 	}
@@ -19,11 +21,14 @@ public class QqVM {
 	public void setQuestionnaire(Questionnaire questionnaire) {
 		this.questionnaire = questionnaire;
 	}
+
 	public Question getQuestion() {
 		return question;
 	}
 	public void setQuestion(Question question) {
 		this.question = question;
 	}
+
+
 	
 }

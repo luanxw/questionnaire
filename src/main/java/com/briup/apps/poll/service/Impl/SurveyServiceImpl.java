@@ -6,6 +6,8 @@
 
 package com.briup.apps.poll.service.Impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,12 +73,20 @@ public class SurveyServiceImpl implements ISurveyService {
 	public void saveOrUpdate(Survey survey) throws Exception {
 		
 		// TODO Auto-generated method stub
-		Survey count=surveyMapper.selectByPrimaryKey(survey.getId());
-		if(count!=null){
+		if(survey.getId()!=null){
 			surveyMapper.updateByPrimaryKey(survey);
-		}else{
+		} else {
+			// status code surveyDate
+			survey.setStatus(Survey.STATUS_INIT);
+			survey.setCode("");
+			//获取当前时间
+			Date now = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String surveydate = sdf.format(now);
+			survey.setSurveydate(surveydate);
+			
 			surveyMapper.insert(survey);
-		}
+}
 		
 		
 	}

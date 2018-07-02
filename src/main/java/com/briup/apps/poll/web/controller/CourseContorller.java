@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.briup.apps.poll.bean.Course;
+import com.briup.apps.poll.bean.extend.CourseVM;
 import com.briup.apps.poll.service.ICourseService;
 import com.briup.apps.poll.util.MsgResponse;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @Api(description="课程相关接口")
 @RestController
@@ -93,5 +95,18 @@ public class CourseContorller {
 			return MsgResponse.error(e.getMessage());
 	 }
  }
-	
+	//扩展
+ @ApiOperation(value="班级查询" ,notes="包含属性信息")
+ @GetMapping("findAllCourseVM")
+	public MsgResponse findAllCourseVM(){
+		try {
+			List<CourseVM> list = courseService.findAllCourseVM();
+			//返回成功信息
+			return MsgResponse.success("success", list);
+		} catch (Exception e) {
+			//返回错误信息
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
 }
