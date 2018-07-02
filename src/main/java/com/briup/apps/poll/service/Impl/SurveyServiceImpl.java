@@ -9,9 +9,12 @@ package com.briup.apps.poll.service.Impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.briup.apps.poll.bean.Survey;
 import com.briup.apps.poll.bean.SurveyExample;
+import com.briup.apps.poll.bean.extend.SurveyVM;
 import com.briup.apps.poll.dao.SurveyMapper;
+import com.briup.apps.poll.dao.extend.SurveyVMMapper;
 import com.briup.apps.poll.service.ISurveyService;
 
 
@@ -22,6 +25,14 @@ public class SurveyServiceImpl implements ISurveyService {
 	
 	@Autowired
 	private SurveyMapper surveyMapper;
+	
+	@Autowired
+	private SurveyVMMapper surveyVMMapper;
+	
+
+	
+	
+	
 	/*
 	 * 查询所有课调
 	 */
@@ -37,9 +48,9 @@ public class SurveyServiceImpl implements ISurveyService {
 	 */
 
 	@Override
-	public Survey findById(long id) throws Exception {
+	public SurveyVM findById(long id) throws Exception {
 		// TODO Auto-generated method stub
-		return surveyMapper.selectByPrimaryKey(id);
+		return surveyVMMapper.selectById(id);
 	}
 	/*
 	 * 根据关键字查询
@@ -67,6 +78,7 @@ public class SurveyServiceImpl implements ISurveyService {
 			surveyMapper.insert(survey);
 		}
 		
+		
 	}
 	/*
 	 * 根据ID删除
@@ -83,6 +95,15 @@ public class SurveyServiceImpl implements ISurveyService {
 		for(long id:ids){
 			surveyMapper.deleteByPrimaryKey(id);
 		}
+	}
+
+	/*
+	 *精准查询
+	 */
+	@Override
+	public List<SurveyVM> findAllSurveyVM() throws Exception{
+		// TODO Auto-generated method stub
+		return surveyVMMapper.findAllSurveyVM();
 	}
 
 }

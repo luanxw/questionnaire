@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.briup.apps.poll.bean.Survey;
+import com.briup.apps.poll.bean.extend.SurveyVM;
 import com.briup.apps.poll.service.ISurveyService;
 import com.briup.apps.poll.util.MsgResponse;
 
@@ -48,7 +49,7 @@ public class SurveyController {
 	@GetMapping("findById")
 	@ResponseBody
 	public MsgResponse findById(@RequestParam long id){
-		Survey survey=new Survey();
+		SurveyVM survey=new SurveyVM();
 		try {
 			survey=iSurveyService.findById(id);
 			return MsgResponse.success("查找成功", survey);
@@ -125,5 +126,21 @@ public class SurveyController {
 		}
 	}
 	
+	    //精准查找所有课调
+		@ApiOperation(value="查询全部")
+		@GetMapping("findAllSurveyVM")
+		@ResponseBody
+		public MsgResponse findAllSurveyVM(){
+			List<SurveyVM> list;
+			try {
+				list = iSurveyService.findAllSurveyVM();
+				return MsgResponse.success("查找成功",list);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return MsgResponse.error(e.getMessage());
+			}
+			
+		}
 	
 }
