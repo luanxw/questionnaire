@@ -134,4 +134,15 @@ import io.swagger.annotations.ApiOperation;
 		return MsgResponse.error(e.getMessage());
 	}
 	}
+	@ApiOperation(value="模糊查询信息")
+	@GetMapping("queryQuestionVM")
+	public MsgResponse queryQuestionVM(String keywords){
+		try {
+			return MsgResponse.success("success",questionService.queryVM(keywords));
+		} catch (Exception e) {
+			//返回错误信息
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
 }

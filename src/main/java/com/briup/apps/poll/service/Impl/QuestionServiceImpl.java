@@ -45,21 +45,7 @@ public class QuestionServiceImpl implements IQuestionService{
 		example.createCriteria().andNameLike("%"+keywords+"%");
 		return questionMapper.selectByExample(example);
 	}
-/*
- * (non-Javadoc)
- * @Override
-	public void saveOrUpdate(Question question) throws Exception {
-		if(question.getId()!=null){
-			//更新
-			questionMapper.updateByPrimaryKey(question);
-		}else{
-			//插入
-			questionMapper.insert(question);
-		}
-	}
- * @see com.briup.apps.poll.service.IQuestionService#saveOrUpdate(com.briup.apps.poll.bean.Question)
- */
-	
+
 
 	@Override
 	public void deleteById(long id) throws Exception {		
@@ -79,14 +65,6 @@ public class QuestionServiceImpl implements IQuestionService{
 	public List<QuestionVM> findAllQuestionVM() throws Exception {
 		return questionVMMapper.selectAll();
 	}
-/*
- * 
-	@Override
-	public List<QuestionVM> selectAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
- */
 
 	@Override
 	public void saveOrUpdateQuestionVM(QuestionVM questionVM) throws Exception {
@@ -154,5 +132,13 @@ public class QuestionServiceImpl implements IQuestionService{
 		return questionVMMapper.findQuestionVMById(id);
 	}
 
+	@Override
+	public List<QuestionVM> queryVM(String keywords) throws Exception {
+		//QuestionExample exampleVM = new QuestionExample();
+		//添加了
+		//exampleVM.createCriteria().andNameLike("%"+keywords+"%");
+		return questionVMMapper.queryQuestionVM(keywords);
+	}
+	}
 	
-}
+

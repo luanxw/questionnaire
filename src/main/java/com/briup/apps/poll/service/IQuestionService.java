@@ -23,7 +23,7 @@ public interface IQuestionService {
 	void saveOrUpdateQuestionVM(QuestionVM questionVM) throws Exception;
 
 	QuestionVM findQuestionVMById(long id) throws Exception;
-
+	List<QuestionVM> queryVM(String keywords) throws Exception;
 
 
 
