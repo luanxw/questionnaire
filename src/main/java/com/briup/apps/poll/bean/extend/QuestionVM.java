@@ -3,20 +3,25 @@ package com.briup.apps.poll.bean.extend;
 import java.util.List;
 
 import com.briup.apps.poll.bean.Options;
-import com.briup.apps.poll.bean.Qq;
+//import com.briup.apps.poll.bean.Qq;
 
 public class QuestionVM {
 private Long id;
 private String name;
 private String questionType;
+
 private List<Options> options;
-private List<Qq> qq;
-public List<Qq> getQq() {
-	return qq;
+//private List<Qq> qq;
+/*
+ * public List<Qq> getQq() {
+ * return qq;
 }
 public void setQq(List<Qq> qq) {
 	this.qq = qq;
-}
+	}
+ */
+	
+
 public Long getId() {
 	return id;
 }
