@@ -1,13 +1,13 @@
 package com.briup.apps.poll.bean.extend;
 
 import java.util.List;
-
-
 public class QuestionnaireVM {
+
 	private Long id;
 	private String name;
 	private String description;
-	private List<QuestionVM> questionVM;
+
+	private List<QuestionVM> questionVMs;
 	public Long getId() {
 		return id;
 	}
@@ -26,12 +26,15 @@ public class QuestionnaireVM {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public List<QuestionVM> getQuestionVM() {
-		return questionVM;
+	
+	
+	public List<QuestionVM> getQuestionVMs() {
+		return questionVMs;
 	}
-	public void setQuestionVM(List<QuestionVM> questionVM) {
-		this.questionVM = questionVM;
+	public void setQuestionVMs(List<QuestionVM> questionVMs) {
+		this.questionVMs = questionVMs;
 	}
+	
 	
 	
 }

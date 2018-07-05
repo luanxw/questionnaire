@@ -138,7 +138,9 @@
     </if>
   </delete>
 
+
   <insert id="insert"  keyProperty="id" useGeneratedKeys="true"  parameterType="com.briup.apps.poll.bean.Question">
+
 
 
     <!--

@@ -1,14 +1,20 @@
 package com.briup.apps.poll.dao.extend;
 
-
 import java.util.List;
 
 import com.briup.apps.poll.bean.extend.QuestionVM;
 
 public interface QuestionVMMapper {
-	
-	void saveOrUpdateQuestion(QuestionVM questionVM);
-	 
-	List<QuestionVM> selectAllQuestion();
-	
+
+List<QuestionVM> selectAll();
+
+void updataByPrimaryKey(QuestionVM questionVM);
+
+void deleteByPrimaryKey(long id);
+ 
+QuestionVM findQuestionVMById(long id);
+
+List<QuestionVM> queryQuestionVM(String keywords);
+List<QuestionVM> selectByQuestionnaireId(long id);
+
 }
