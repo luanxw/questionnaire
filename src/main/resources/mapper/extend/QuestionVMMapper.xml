@@ -6,6 +6,17 @@
 	<select id="selectAll" resultMap="QuestionVMResultMap">
 		select * from poll_question
 	</select>
+	
+	<select id="selectByQuestionnaireId" parameterType="long" resultMap="QuestionVMResultMap">
+	
+		select * from poll_question where id in(
+		select question_id
+		from poll_qq
+		where questionnaire_id = #{id}
+		
+		)
+	</select>
+	
 	<select id="findQuestionVMById" resultMap="QuestionVMResultMap">
 		select * from poll_question where id=#{id}
 	</select>
@@ -21,7 +32,11 @@
 		<result column="name" property="name" />
 		<result column="questionType" property="questionType" />
 
-		<collection column="id" property="options"  select="selectOptionsByQuestionId">
+		<collection column="id"
+		 property="options"
+		 javaType="ArrayList"
+		 ofType="com.briup.apps.poll.bean.Options"
+	     select="selectOptionsByQuestionId">
 		</collection>
 	</resultMap>
 

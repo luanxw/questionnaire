@@ -15,5 +15,6 @@ void deleteByPrimaryKey(long id);
 QuestionVM findQuestionVMById(long id);
 
 List<QuestionVM> queryQuestionVM(String keywords);
+List<QuestionVM> selectByQuestionnaireId(long id);
 
 }
