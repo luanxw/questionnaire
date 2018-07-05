@@ -6,6 +6,7 @@ package com.briup.apps.poll.service;
 */
 
 import java.util.List;
+
 import com.briup.apps.poll.bean.answers;
 
 public interface IAnswersService {
@@ -21,5 +22,8 @@ public interface IAnswersService {
 	void saveOrUpdate(answers answers) throws Exception;
 	
 	void batchDelete(Long[] ids) throws Exception;
+	
+	//通过surveyId查询answers
+	List<answers> findAnswersBySurveyId(long id) throws Exception;
 
 }

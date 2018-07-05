@@ -6,12 +6,13 @@ import com.briup.apps.poll.bean.User;
 
 public class SurveyVM {
 	private Long id;
+	private Double average;
 	private String status;
 	private String code;
 	private String surveyDate;
 	private ClazzVM clazzVM;
 	private User user;
-	private QuestionnaireVM questionnaireVM;
+	private QuestionnaireVM qnVM;
 	private Course course;
 	public Long getId() {
 		return id;
@@ -56,11 +57,18 @@ public class SurveyVM {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public QuestionnaireVM getQuestionnaireVM() {
-		return questionnaireVM;
+	
+	public QuestionnaireVM getQnVM() {
+		return qnVM;
 	}
-	public void setQuestionnaireVM(QuestionnaireVM questionnaireVM) {
-		this.questionnaireVM = questionnaireVM;
+	public void setQnVM(QuestionnaireVM qnVM) {
+		this.qnVM = qnVM;
+	}
+	public Double getAverage() {
+		return average;
+	}
+	public void setAverage(Double average) {
+		this.average = average;
 	}
 
 }
